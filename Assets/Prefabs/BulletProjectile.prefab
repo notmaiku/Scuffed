@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 180292026546501874}
   - component: {fileID: 8391501429260285474}
   - component: {fileID: 8723185264935123260}
+  - component: {fileID: 499275385970975270}
   m_Layer: 0
   m_Name: BulletProjectile
   m_TagString: Untagged
@@ -222,3 +223,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 100
+--- !u!114 &499275385970975270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8745935046569437696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb2c212afc7cd7408f9b16548e9986a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3

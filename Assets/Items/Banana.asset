@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7b2b3f995c0ed428bb287f5e02a565, type: 3}
+  m_Name: Banana
+  m_EditorClassIdentifier: 
+  displayName: Banana
+  description: Consumable for Spint Speed
+  type: 2
+  icon: {fileID: 21300000, guid: fadc4988be728574ab7b29d07abb68e5, type: 3}
+  dropPrefab: {fileID: 8874565403879403148, guid: 97e92a7d92f3c78469cc463ad7b314a9, type: 3}
+  canStack: 1
+  maxStacks: 4
+  consumable:
+  - type: 3
+    value: 10
+  - type: 2
+    value: 10
