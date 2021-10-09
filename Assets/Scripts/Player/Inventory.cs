@@ -26,7 +26,6 @@ public class Inventory : MonoBehaviour {
     private int curEquipIndex;
 
     //components
-    private PlayerController controller;
     [Header("Events")]
     public UnityEvent onOpenInventory;
     public UnityEvent onCloseInventory;
@@ -37,7 +36,6 @@ public class Inventory : MonoBehaviour {
 
     void Awake() {
         instance = this;
-        controller = GetComponent<PlayerController>();
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
     }
     void Start() {
@@ -62,12 +60,14 @@ public class Inventory : MonoBehaviour {
             inventoryWindow.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             starterAssetsInputs.cursorInputForLook = true;
+            ThirdPersonController.instance.lookToggle = false;
             onCloseInventory.Invoke();
         } else {
             inventoryWindow.SetActive(true);
             onOpenInventory.Invoke();
             ClearSelectedItemWindow();
             Cursor.lockState = CursorLockMode.None;
+            ThirdPersonController.instance.lookToggle = true;
             starterAssetsInputs.cursorInputForLook = false;
         }
     }
@@ -184,7 +184,7 @@ public class Inventory : MonoBehaviour {
     }
     void RemoveSelectedItem() {
         selectedItem.quantity--;
-        if (selectedItem.quantity >= 0) {
+        if (selectedItem.quantity == 0) {
             if (uiSlots[selectedItemIndex].equipped == true) {
                 UnEquip(selectedItemIndex);
             }

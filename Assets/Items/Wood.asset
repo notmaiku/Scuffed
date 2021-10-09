@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc7b2b3f995c0ed428bb287f5e02a565, type: 3}
-  m_Name: Bandaid
+  m_Name: Wood
   m_EditorClassIdentifier: 
-  displayName: 
-  description: 
-  type: 0
-  icon: {fileID: 0}
-  dropPrefab: {fileID: 0}
-  canStack: 0
-  maxStacks: 0
-  consumable:
-  - type: 2
-    value: 25
+  displayName: Wood
+  description: Wood resource for crafting
+  type: 1
+  icon: {fileID: 21300000, guid: b8cf96ee04109fe47b5561bfa5c8ca43, type: 3}
+  dropPrefab: {fileID: 919132149155446097, guid: 4c2ac1e696c673a42b410ac74a1dbec1, type: 3}
+  canStack: 1
+  maxStacks: 10
+  consumable: []
