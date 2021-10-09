@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour {
         ClearSelectedItemWindow();
     }
     private void Update() {
-        if(starterAssetsInputs.inventory) {
+        if (starterAssetsInputs.inventory) {
             Toggle();
             starterAssetsInputs.inventory = false;
         }
@@ -127,14 +127,21 @@ public class Inventory : MonoBehaviour {
         return null;
     }
     public void SelectItem(int index) {
-        if(slots[index].item == null) return;
+        if (slots[index].item == null) return;
 
         selectedItem = slots[index];
         selectedItemIndex = index;
 
+        // getting each field in the inventory view
         selectedItemName.text = selectedItem.item.displayName;
         selectedItemDescription.text = selectedItem.item.description;
-
+        selectedItemStatNames.text = string.Empty;
+        selectedItemStatValues.text = string.Empty;
+        // adding in each consumable type into the fields
+        foreach (ItemDataConsumable itemDataConsumable in selectedItem.item.consumable) {
+            selectedItemStatNames.text += itemDataConsumable.type.ToString() + "\n";
+            selectedItemStatValues.text += itemDataConsumable.value.ToString() + "\n";
+        }
         // set stat values and stat names
         useButton.SetActive(selectedItem.item.type == ItemType.Consumable);
         equipButton.SetActive(selectedItem.item.type == ItemType.Equipable && !uiSlots[index].equipped);
@@ -177,8 +184,8 @@ public class Inventory : MonoBehaviour {
     }
     void RemoveSelectedItem() {
         selectedItem.quantity--;
-        if(selectedItem.quantity >= 0){
-            if(uiSlots[selectedItemIndex].equipped == true){
+        if (selectedItem.quantity >= 0) {
+            if (uiSlots[selectedItemIndex].equipped == true) {
                 UnEquip(selectedItemIndex);
             }
             selectedItem.item = null;

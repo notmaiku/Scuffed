@@ -7,12 +7,6 @@ public class ItemObject : MonoBehaviour, IInteractable {
     public ItemData item;
     private ConsumableType statType;
     private ItemType itemType;
-
-
-    public void Start() {
-        // System.Reflection.PropertyInfo propertyInfo = StarterAssets.ThirdPersonController.instance.GetType().GetProperty("Gravity");
-        // propertyInfo.GetValue(StarterAssets.ThirdPersonController.instance, null);
-    }
     public void OnInteract() {
         Inventory.instance.AddItem(item);
         Destroy(gameObject);
